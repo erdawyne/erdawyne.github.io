@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="bgform.css">
+<form action="#" class="container">
+    <br>
+    <label for="nama">Nama Pelanggan &emsp;</label>
+    <br><br>
+        <input type="text" name="nama" id="nama" />
+    <br><br>
+    <label for="total">Nomor Antrian</label>
+    <br><br>
+    <input type="text" name="total" id="total" />
+    <br><br>   
+    
+        <label for="Makanan">Menu Makanan</label>
+        <br><br>
+        <h1>
+        <input type="checkbox" name="Makanan" id="Makanan" value="Seblak Sosis"/> Seblak Sosis
+        <input type="checkbox" name="Makanan" id="Makanan" value="Seblak Ceker" /> Seblak Ceker
+        <input type="checkbox" name="Makanan" id="Makanan" value="Seblak Bakso aci" /> Seblak Bakso aci
+        <br><br>
+
+        </h1>
+       
+        <label for="Minuman">Menu Minuman</label>
+        <br><br>
+        <h1>
+        <input type="checkbox" name="Minuman" id="Minuman" value="es teh" /> es teh
+        <input type="checkbox" name="Minuman" id="Minuman" value="hot teh" /> hot teh
+        <input type="checkbox" name="Minuman" id="Minuman" value="es jeruk" /> es jeruk
+        <input type="checkbox" name="Minuman" id="Minuman" value="hot jeruk" /> hot jeruk
+        <input type="checkbox" name="Minuman" id="Minuman" value="pop ice" /> pop ice
+        <br>
+        </h1>
+    <br><br>
+    <label for="Jenis Pembayaran">Jenis Pembayaran </label>
+    <br><br>
+    <h1>
+        <input type="radio" name="JenisPembayaran" id="JenisPembayaran" value="Cash"/> Cash
+        <input type="radio" name="JenisPembayaran" id="JenisPembayaran" value="Transfer"/> Transfer
+        <br><br>
+    </h1>
+        <input type="button" value="Kirim" onclick="tampilData()" />
+        <br><br><br>
+    
+</form>
+
+<script>
+    function tampilData() {
+        var nama = document.getElementById("nama").value;
+        var total = document.getElementById("total").value;
+        var JenisPembayaran = document.querySelector("input[name=JenisPembayaran]:checked").value;
+        var Makanan = document.getElementsByName("Makanan");
+        var daftarMakanan = ''
+
+        for(var Makanan2 of Makanan) {
+            if(Makanan2.checked) {
+                daftarMakanan += ', '+Makanan2.value
+            }
+        }
+
+        daftarMakanan = daftarMakanan.substring(1)
+
+        var Makanan = document.getElementsByName("Minuman");
+        var daftarMinuman = ''
+
+        for(var Minuman2 of Minuman) {
+            if(Minuman2.checked) {
+                daftarMinuman += ', '+Minuman2.value
+            }
+        }
+
+        daftarMinuman = daftarMinuman.substring(1)
+
+        alert(
+            "   Terimakasih telah membeli seblak hot   " +
+            "\nSilahkan periksa kembali apakah data pesanan anda sudah benar" +
+            "\n\nNama : " +
+            nama +
+            "\nNomor Antrian : " +
+            total +
+            "\nMakanan : " +
+            daftarMakanan +
+            "\nMinuman : " +
+            daftarMinuman +
+            "\nJenis Pembayaran : " +
+            JenisPembayaran +
+            "\n\nMohon ditunggu pesanannya"
+        );
+    }
+</script>
